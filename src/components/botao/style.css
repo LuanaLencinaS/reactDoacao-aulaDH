@@ -1,0 +1,13 @@
+.button {
+    background-color: blue;
+    color: white;
+}
+
+.erro {
+    background-color: red;
+    color: white;
+}
+.sucesso {
+    background-color: green;
+    color: white;
+}

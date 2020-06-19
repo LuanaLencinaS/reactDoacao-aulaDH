@@ -1,40 +1,56 @@
 //componete header
 import React from "react";
 
+//importo o componente link do método Routes...
+import { Link } from "react-router-dom";
+
 import "./style.css"
 
-export default function Header(){
+import imgLogo from "../../assets/img/logo1.svg";
+
+export default function Header(props){
 
     const listaDeLinks = ["home", "contato", "Doações"]
-
-    const loggado = false;
 
     function loggar(){
         alert("usuario loggado")
     }
     
     return (
-        <header>
-            <h1>logo</h1>
+        <header className="row cor-azul m-0 topo-fixo d-flex justify-content-center align-items-center">
+            <div className="col-12 col-md-11 col-lg-10 col-xl-9">
+                <nav className="navbar navbar-expand-md navbar-dark">
+                    <a className="navbar-brand m-0" href="#">
+                        <img src={imgLogo} alt="Logo" title="Logo" height="55px"/>
+                    </a>
+                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                
+                    <div className="collapse navbar-collapse submenu" id="navbarTogglerDemo02">
+                        <ul className="navbar-nav mt-lg-0">
+                            {/* {listaDeLinks.map((link, index) => {
+                                return (
+                                <li className="nav-item" key={index}>
+                                    <a className="nav-link" href="#">{link}</a>
+                                </li>)
+                            })} */}
 
-            {/* sempre que for fazer um looop para listar um array, precisa usar um map/filter/reduc com o return, pois o foreach não traz nenhum retorno */}
-            <ul>
-                {listaDeLinks.map((link) => {
-                    return <li>{link}</li>
-                })}
-            </ul>
+                            <li className="nav-item">
+                                {/* uso o componente importado com o atributo to, para ir até a página sem recarregar */}
+                                <Link className="nav-link" to="/contato">Contatos</Link>
+                            </li>
+                        </ul>
+                    </div>
 
-            {/* dentro do return o EJX só aceita if ternario */}
-
-            {
-                loggado ?
-                <h1>Oi usuario</h1> 
-                :
-                <button onClick={loggar}>logar</button>
-            }
-
-            {/* em react não usamos eventos de DOM, pois ainda não é dom, por isso o padrao é usar os eventos js direto no elemento (lembrar que o nome do evento precisa ser camelcase) */}
-            
+                    {
+                        props.logado ?
+                        <h1 style={{fontSize:"1rem"}}>Oi usuario</h1> 
+                        :
+                        <button onClick={loggar}>logar</button>
+                    }
+                </nav>
+            </div>
         </header>
     )
 }

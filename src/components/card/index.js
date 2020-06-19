@@ -1,18 +1,24 @@
 import React from "react";
+import Proptypes from "prop-types";
+
+import Botao from "../botao";
 
 import "./style.css"
 
-export default function Card(){
+export default function Card(props){
     return (
         <div className="card mt-2">
             <div className="card-body">
-                <h1>Doação de Alimento</h1>
-                <p>estou doando para ajudar</p>
+                <h1>{props.titulo}</h1>
+                <p>{props.descricao}</p>
 
-                <button className="btn btn-success">
-                    Eu quero!
-                </button>
+                < Botao texto="Eu quero" tipo="sucesso" />
             </div>
         </div>
     )
+}
+
+Card.propTypes = {
+    titulo: Proptypes.string,
+    descricao: Proptypes.string,
 }
