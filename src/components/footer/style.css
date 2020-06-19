@@ -1,0 +1,12 @@
+footer {
+    background-color: rgb(142, 90, 255);
+    width: 100%;
+    margin: 0;
+}
+ 
+.footer-info {
+    height: 90px;
+    background-color: rgb(101, 30, 255);
+    width: 100%;
+    margin: 0;
+}

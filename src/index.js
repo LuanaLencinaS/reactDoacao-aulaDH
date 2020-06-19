@@ -1,17 +1,19 @@
+//faz a estrutura rodar, renderiza a div com o root na index.html
+
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
+import ReactDOM from 'react-dom'; //interpreta o que escrevemos em componente para virar dom
+
+//importação do bootstrap via yarn add bootstrap
+import "bootstrap/dist/css/bootstrap.min.css"
+// import "bootstrap/dist/js/bootstrap.min.js"
+
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+//importamos a "página", como um componente principal
+//todo componente criado precisa ter a letra inicial maiuscula
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App /> {/* componente */}
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
